@@ -106,6 +106,14 @@ FileManagerApp::FileManagerApp(const String& path) :
         LILKA_MENU_CLBK_DATA_CAST(this)
     );
     fileOpenWithMenu.addItem(
+        K_S_FMANAGER_MAVKA,
+        0,
+        lilka::colors::White,
+        "",
+        LILKA_MENU_CLBK_CAST(&FileManagerApp::onFileOpenWithMavka),
+        LILKA_MENU_CLBK_DATA_CAST(this)
+    );
+    fileOpenWithMenu.addItem(
         K_S_FMANAGER_LILTRACKER,
         0,
         lilka::colors::White,
@@ -317,8 +325,14 @@ FMEntry FileManagerApp::pathToEntry(const String& path) {
         newEntry.type = FT_JS_SCRIPT;
         newEntry.icon = FT_JS_SCRIPT_ICON;
         newEntry.color = FT_JS_SCRIPT_COLOR;
-    } else if (lowerCasedPath.endsWith(".mod") || lowerCasedPath.endsWith(".wav") || lowerCasedPath.endsWith(".mp3") ||
-               lowerCasedPath.endsWith(".aac") || lowerCasedPath.endsWith(".flac")) {
+    } else if (lowerCasedPath.endsWith(".м")) {
+        newEntry.type = FT_MAVKA_SCRIPT;
+        newEntry.icon = FT_MAVKA_SCRIPT_ICON;
+        newEntry.color = FT_MAVKA_SCRIPT_COLOR;
+    } else if (
+        lowerCasedPath.endsWith(".mod") || lowerCasedPath.endsWith(".wav") || lowerCasedPath.endsWith(".mp3") ||
+        lowerCasedPath.endsWith(".aac") || lowerCasedPath.endsWith(".flac")
+    ) {
         newEntry.type = FT_SOUND;
         newEntry.icon = FT_SOUND_ICON;
         newEntry.color = FT_SOUND_COLOR;
@@ -330,8 +344,10 @@ FMEntry FileManagerApp::pathToEntry(const String& path) {
         newEntry.type = FT_SO;
         newEntry.icon = FT_SO_ICON;
         newEntry.color = FT_SO_COLOR;
-    } else if (lowerCasedPath.endsWith(".png") || lowerCasedPath.endsWith(".jpg") || lowerCasedPath.endsWith(".jpeg") ||
-               lowerCasedPath.endsWith(".gif") || lowerCasedPath.endsWith(".bmp")) {
+    } else if (
+        lowerCasedPath.endsWith(".png") || lowerCasedPath.endsWith(".jpg") || lowerCasedPath.endsWith(".jpeg") ||
+        lowerCasedPath.endsWith(".gif") || lowerCasedPath.endsWith(".bmp")
+    ) {
         newEntry.type = FT_IMAGE;
         newEntry.icon = FT_IMAGE_ICON;
         newEntry.color = FT_IMAGE_COLOR;
@@ -369,6 +385,9 @@ void FileManagerApp::openCurrentEntry() {
             break;
         case FT_JS_SCRIPT:
             K_FT_JS_SCRIPT_HANDLER(path);
+            break;
+        case FT_MAVKA_SCRIPT:
+            K_FT_MAVKA_SCRIPT_HANDLER(path);
             break;
         case FT_SOUND:
             K_FT_SOUND_HANDLER(path);
@@ -502,6 +521,16 @@ void FileManagerApp::onFileOpenWithMJS() {
     FM_MENU_HANDLE_EXIT(fileOpenWithMenu);
 
     K_FT_JS_SCRIPT_HANDLER(lilka::fileutils.joinPath(currentEntry.path, currentEntry.name));
+
+    FM_DBG LXP;
+}
+
+void FileManagerApp::onFileOpenWithMavka() {
+    FM_DBG LEP;
+
+    FM_MENU_HANDLE_EXIT(fileOpenWithMenu);
+
+    K_FT_MAVKA_SCRIPT_HANDLER(lilka::fileutils.joinPath(currentEntry.path, currentEntry.name));
 
     FM_DBG LXP;
 }

@@ -132,7 +132,7 @@
 #define K_S_LAUNCHER_ABOUT             "Про пристрій"
 #define K_S_LAUNCHER_FIRMWARE_VERSION  "Версія прошивки"
 #define K_S_LAUNCHER_EASTER_EGG        "Сюрприз!"
-#define K_S_LAUNCHER_ABOUT_FMT         "Keira: %s\nSDK: %s\nESP-IDF: %s\n\n"         
+#define K_S_LAUNCHER_ABOUT_FMT         "Keira: %s\nSDK: %s\nESP-IDF: %s\n\n"
 #define K_S_LAUNCHER_VERSION_FMT       "Keira: %s\nSDK: %s\nESP-IDF: %s"
 #define K_S_LAUNCHER_DEVICE_INFO       "Інфо про пристрій"
 #define K_S_LAUNCHER_DEVICE_INFO_FMT   "Пристрій: %s\nЧіп: %s\nРевізія: %d\nЧастота: %d МГц\nЯдер: %d\nIP: %s"
@@ -206,6 +206,7 @@
 #define K_S_FMANAGER_FIRMWARE_LOADER                      "Завантажувач прошивок"
 #define K_S_FMANAGER_LUA                                  "Lua"
 #define K_S_FMANAGER_MJS                                  "mJS"
+#define K_S_FMANAGER_MAVKA                                "Мавка"
 #define K_S_FMANAGER_LILTRACKER                           K_S_LAUNCHER_LILTRACKER
 #define K_S_FMANAGER_MAD_PLAYER                           "MadPlayer"
 #define K_S_FMANAGER_DYNAPP                                "DynApp (.so)"
@@ -568,11 +569,11 @@
 #define K_S_PART_MGR_OPT_SELECT                    "Обрати"
 #define K_S_PART_MGR_OPT_SELECT_ALL                "Обрати все"
 #define K_S_PART_MGR_ENTER_BACKUP_NAME             "Введіть назву резервної копії:"
-#define K_S_PART_MGR_BACKUP_CAVEATS                "Ця команда зробить резервні копії обраних розділів:\n" 
+#define K_S_PART_MGR_BACKUP_CAVEATS                "Ця команда зробить резервні копії обраних розділів:\n"
 #define K_S_PART_MGR_PART_RUNNING_FMT              "Розділ %s використовується. Пропуск..."
 
 #define K_S_PART_MGR_INTERRUPT_CONFIRM             "Чи бажаєте ви перервати операцію?"
-#define K_S_PART_MGR_SELECTED_ENTRIES_FMT          "Обрано %d розділ(ів)" 
+#define K_S_PART_MGR_SELECTED_ENTRIES_FMT          "Обрано %d розділ(ів)"
 // Keira update //////////////////////////////////////////////////////////////////////////////////////
 #define K_S_LAUNCHER_KEIRA_UPDATE           "Оновити Keira"
 #define K_S_KEIRA_UPDATE                    "Оновлення Keira"

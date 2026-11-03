@@ -173,6 +173,7 @@ Keira написана на C++, і вона містить ряд вбудов�
                 ITEM_APP("М'ячик", BallApp),
                 ITEM_APP("Куб", CubeApp),
                 ITEM_APP("Епілепсія", EpilepsyApp),
+                ITEM_APP("Мавка", MavkaApp),
             }
         ),
         ITEM_SUBMENU(

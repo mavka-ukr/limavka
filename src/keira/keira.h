@@ -27,20 +27,22 @@
 #include "apps/liltracker/liltracker.h"
 #include "apps/lua/luarunner.h"
 #include "apps/mjs/mjsrunner.h"
+#include "apps/mavka/mavkarunner.h"
 #include "apps/nes/nesapp.h"
 #include "apps/dynapp/dynapp.h"
 #include "apps/multiboot/multiboot.h"
 #include "apps/imageviewer/imageviewer.h"
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
 // FILETYPE HANDLERS:  ////////////////////////////////////////////////////////////////////////////////
-#define K_FT_NES_HANDLER(X)        ksystem.apps.spawn(new NesApp(X))
-#define K_FT_LUA_SCRIPT_HANDLER(X) ksystem.apps.spawn(new LuaFileRunnerApp(X))
-#define K_FT_JS_SCRIPT_HANDLER(X)  ksystem.apps.spawn(new MJSApp(X))
-#define K_FT_SOUND_HANDLER(X)      ksystem.apps.spawn(new MadPlayerApp(X))
-#define K_FT_LT_HANDLER(X)         ksystem.apps.spawn(new LilTrackerApp(X))
-#define K_FT_SO_HANDLER(X)         ksystem.apps.spawn(new DynApp(X))
-#define K_FT_BIN_HANDLER(X)        ksystem.apps.spawn(new MultiBootApp(X))
-#define K_FT_IMAGE_HANDLER(X)      ksystem.apps.spawn(new ImageViewerApp(X))
+#define K_FT_NES_HANDLER(X)          ksystem.apps.spawn(new NesApp(X))
+#define K_FT_LUA_SCRIPT_HANDLER(X)   ksystem.apps.spawn(new LuaFileRunnerApp(X))
+#define K_FT_JS_SCRIPT_HANDLER(X)    ksystem.apps.spawn(new MJSApp(X))
+#define K_FT_MAVKA_SCRIPT_HANDLER(X) ksystem.apps.spawn(new MavkaFileRunnerApp(X))
+#define K_FT_SOUND_HANDLER(X)        ksystem.apps.spawn(new MadPlayerApp(X))
+#define K_FT_LT_HANDLER(X)           ksystem.apps.spawn(new LilTrackerApp(X))
+#define K_FT_SO_HANDLER(X)           ksystem.apps.spawn(new DynApp(X))
+#define K_FT_BIN_HANDLER(X)          ksystem.apps.spawn(new MultiBootApp(X))
+#define K_FT_IMAGE_HANDLER(X)        ksystem.apps.spawn(new ImageViewerApp(X))
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
 // GUIDELINE: Use Keira global filetype handlers(K_FT_) if possible

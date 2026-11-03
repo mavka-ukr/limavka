@@ -576,11 +576,11 @@
 #define K_S_PART_MGR_OPT_SELECT                    "Select"
 #define K_S_PART_MGR_OPT_SELECT_ALL                "Select all"
 #define K_S_PART_MGR_ENTER_BACKUP_NAME             "Enter backup name:"
-#define K_S_PART_MGR_BACKUP_CAVEATS                "This command would flash these partitions:\n" 
+#define K_S_PART_MGR_BACKUP_CAVEATS                "This command would flash these partitions:\n"
 #define K_S_PART_MGR_PART_RUNNING_FMT              "Partition %s is running. Skiping..."
 
 #define K_S_PART_MGR_INTERRUPT_CONFIRM             "Do you want to interrupt that operation?"
-#define K_S_PART_MGR_SELECTED_ENTRIES_FMT          "Selected %d entries" 
+#define K_S_PART_MGR_SELECTED_ENTRIES_FMT          "Selected %d entries"
 // Keira update //////////////////////////////////////////////////////////////////////////////////////
 #define K_S_LAUNCHER_KEIRA_UPDATE           "Update Keira"
 #define K_S_KEIRA_UPDATE                    "Keira update"

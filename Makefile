@@ -36,6 +36,7 @@ clang-format: ## Run clang-format check
 		-not \( -name doomgeneric -prune \) \
 		-not \( -name bak -prune \) \
 		-not \( -name mJS -prune \) \
+		-not \( -name Limavka -prune \) \
 		-not \( -name SimpleFTPServer -prune \) \
 		-not \( -name LodePNG -prune \) \
 		-iname *.h \
