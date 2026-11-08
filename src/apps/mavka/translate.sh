@@ -16,6 +16,7 @@ for path in sys.argv[1:]:
 
 rm -rf $SCRIPT_DIR/translated/
 mkdir -p $SCRIPT_DIR/translated
+mkdir -p $SCRIPT_DIR/translated/мавка/пристрій_мавки/external/cstd
 
 echo "*.c linguist-generated" >$SCRIPT_DIR/translated/.gitattributes
 
@@ -23,6 +24,17 @@ cp $SCRIPT_DIR/src/tsilint.h $SCRIPT_DIR/src/limavka.h $SCRIPT_DIR/src/limavka.c
 c_to_ucn $SCRIPT_DIR/translated/tsilint.h
 c_to_ucn $SCRIPT_DIR/translated/limavka.h
 c_to_ucn $SCRIPT_DIR/translated/limavka.cpp
+
+cp -a $SCRIPT_DIR/src/мавка/пристрій_мавки/external/include $SCRIPT_DIR/translated/мавка/пристрій_мавки/external
+c_to_ucn $SCRIPT_DIR/translated/мавка/пристрій_мавки/external/include/mavka/numbertypes.h
+c_to_ucn $SCRIPT_DIR/translated/мавка/пристрій_мавки/external/include/mavka/prystriy.h
+c_to_ucn $SCRIPT_DIR/translated/мавка/пристрій_мавки/external/include/mavka/tsil.h
+
+cp $SCRIPT_DIR/src/мавка/пристрій_мавки/external/prystriy.c $SCRIPT_DIR/translated/мавка/пристрій_мавки/external/prystriy.c
+c_to_ucn $SCRIPT_DIR/translated/мавка/пристрій_мавки/external/prystriy.c
+
+cp $SCRIPT_DIR/src/мавка/пристрій_мавки/external/cstd/prystriy_cstd.c $SCRIPT_DIR/translated/мавка/пристрій_мавки/external/cstd/prystriy_cstd.c
+c_to_ucn $SCRIPT_DIR/translated/мавка/пристрій_мавки/external/cstd/prystriy_cstd.c
 
 compile_tsil() {
   InputFile="$SCRIPT_DIR/src/$1"
@@ -35,14 +47,13 @@ compile_tsil() {
   ціль \
     "$OutputFile" -Ф=сіанг -П=есп32с3 \
     перекласти \
-    "$InputFile" -В=$SCRIPT_DIR/src/лімавка/визначення -В=$SCRIPT_DIR/src/мавка/визначення -В=$SCRIPT_DIR/src/мавка/КД/визначення
+    "$InputFile" -В=$SCRIPT_DIR/src/лімавка/визначення -В=$SCRIPT_DIR/src/мавка/машина/визначення -В=$SCRIPT_DIR/src/мавка/машина/КД/визначення -В=$SCRIPT_DIR/src/мавка/пристрій_мавки/визначення
 
   c_to_ucn "$SCRIPT_DIR/translated/$1.c"
 }
 
 compile_tsil "лімавка/лімавка.ц"
 compile_tsil "лімавка/машина.ц"
-compile_tsil "лімавка/мавка_необхідне.ц"
 compile_tsil "лімавка/модулі/Кнопки/Кнопки.ц"
 compile_tsil "лімавка/модулі/Кнопки/дії/оновити.ц"
 compile_tsil "лімавка/модулі/Колір/Колір.ц"
@@ -64,7 +75,13 @@ compile_tsil "лімавка/модулі/Полотно/дії/лінія.ц"
 compile_tsil "лімавка/модулі/Полотно/дії/текст.ц"
 compile_tsil "лімавка/модулі/Полотно/дії/точка.ц"
 compile_tsil "лімавка/модулі/Полотно/дії/трикут.ц"
-compile_tsil "мавка/КД/КД.ц"
+
+compile_tsil "мавка/машина/КД/КД.ц"
+compile_tsil "мавка/пристрій_мавки/машина.ц"
+compile_tsil "мавка/пристрій_мавки/пристрій.ц"
+compile_tsil "мавка/пристрій_мавки/початок.ц"
+compile_tsil "мавка/машина/початок.ц"
+compile_tsil "мавка/машина/Розмова.ц"
 compile_tsil "мавка/машина/Взяти.ц"
 compile_tsil "мавка/машина/ВзятіЗначення.ц"
 compile_tsil "мавка/машина/Вивід.ц"
@@ -155,9 +172,10 @@ compile_tsil "мавка/машина/предмети/Текст/методи/�
 compile_tsil "мавка/машина/предмети/Текст/методи/чародія_число.ц"
 compile_tsil "мавка/машина/предмети/Текст/методи/зріз.ц"
 compile_tsil "мавка/машина/предмети/Текст/ПредметТексту.ц"
+compile_tsil "мавка/машина/предмети/Число/дії/є_невизначеністю.ц"
 compile_tsil "мавка/машина/предмети/Число/методи/чародія_текст.ц"
 compile_tsil "мавка/машина/предмети/Число/методи/чародія_число.ц"
 compile_tsil "мавка/машина/предмети/Число/ПредметЧисла.ц"
 compile_tsil "мавка/машина/предмети/СкладенийПредмет.ц"
-compile_tsil "мавка/машина/компілювач/компілювач.ц"
+compile_tsil "мавка/машина/перекладач/перекладач.ц"
 compile_tsil "мавка/машина/розбирач/розбирач.ц"
