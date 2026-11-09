@@ -376,6 +376,47 @@ bool pristriy_mavky_read_input_async(
   return true;
 }
 
+#ifndef MAVKA_NO_DLFCN
+#include <dlfcn.h>
+
+void* pristriy_mavky_dlopen(char* path_data, size_t path_size, int* err_out) {
+  (void)path_size;
+
+  dlerror();
+
+  void* dl = dlopen(path_data, RTLD_LAZY);
+
+  if (!dl) {
+    *err_out = -1;
+  }
+
+  return dl;
+}
+
+void* pristriy_mavky_dlsym(void* dl,
+                           char* name_data,
+                           size_t name_size,
+                           int* err_out) {
+  (void)name_size;
+
+  dlerror();
+
+  void* dls = dlsym(dl, name_data);
+
+  const char* err = dlerror();
+  if (err) {
+    *err_out = -1;
+    return NULL;
+  }
+
+  return dls;
+}
+
+int pristriy_mavky_dlclose(void* dl) {
+  return dlclose(dl);
+}
+#endif
+
 void pristriy_mavky_exit(int code) {
   exit(code);
 }

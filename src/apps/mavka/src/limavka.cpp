@@ -4,6 +4,19 @@
 #include "./limavka.h"
 
 extern "C" {
+
+void* pristriy_mavky_dlopen(char* path_data, size_t path_size, int* err_out) {
+    return NULL;
+}
+
+void* pristriy_mavky_dlsym(void* dl, char* name_data, size_t name_size, int* err_out) {
+    return NULL;
+}
+
+int pristriy_mavky_dlclose(void* dl) {
+    return -1;
+}
+
 природне лімавка_полотно_ширина(адреса апп) {
     return static_cast<App*>(апп)->canvas->width();
 }

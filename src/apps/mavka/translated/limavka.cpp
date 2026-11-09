@@ -4,6 +4,19 @@
 #include "./limavka.h"
 
 extern "C" {
+
+void* pristriy_mavky_dlopen(char* path_data, size_t path_size, int* err_out) {
+    return NULL;
+}
+
+void* pristriy_mavky_dlsym(void* dl, char* name_data, size_t name_size, int* err_out) {
+    return NULL;
+}
+
+int pristriy_mavky_dlclose(void* dl) {
+    return -1;
+}
+
 \u043f\u0440\u0438\u0440\u043e\u0434\u043d\u0435 \u043b\u0456\u043c\u0430\u0432\u043a\u0430_\u043f\u043e\u043b\u043e\u0442\u043d\u043e_\u0448\u0438\u0440\u0438\u043d\u0430(\u0430\u0434\u0440\u0435\u0441\u0430 \u0430\u043f\u043f) {
     return static_cast<App*>(\u0430\u043f\u043f)->canvas->width();
 }
