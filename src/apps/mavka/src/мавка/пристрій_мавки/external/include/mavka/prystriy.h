@@ -15,6 +15,8 @@ typedef enum PristriyMavkyWriteToStdoutColor {
   PristriyMavkyColorYellow = 4,
 } PristriyMavkyWriteToStdoutColor;
 
+bool pristriy_mavky_get_version(char** data_out, size_t* size_out);
+
 void* pristriy_mavky_malloc(size_t size);
 
 void* pristriy_mavky_realloc(void* value, size_t new_size);
@@ -36,7 +38,7 @@ double pristriy_mavky_double_acos(double value);
 double pristriy_mavky_double_atan(double value);
 double pristriy_mavky_double_abs(double value);
 double pristriy_mavky_double_exp(double value);
-double pristriy_mavky_double_sqrt2(double value);
+double pristriy_mavky_double_sqrt(double value);
 double pristriy_mavky_double_ceil(double value);
 double pristriy_mavky_double_floor(double value);
 double pristriy_mavky_double_round(double value);

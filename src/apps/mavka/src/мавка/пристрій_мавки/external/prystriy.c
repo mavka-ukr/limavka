@@ -1,6 +1,19 @@
 #include "./include/mavka/prystriy.h"
 #include "./include/mavka/tsil.h"
 
+static char* MAVKA_VERSION_STATIC = MAVKA_VERSION;
+
+bool pristriy_mavky_get_version(char** data_out, size_t* size_out) {
+  *data_out = MAVKA_VERSION_STATIC;
+  *size_out = 0;
+
+  while ((*data_out)[*size_out] != '\0') {
+    *size_out = (*size_out) + 1;
+  }
+
+  return 1;
+}
+
 логічне пристрій_мавки_перекодувати_ю8_в_кд(природне розмір,
                                             п8* дані,
                                             природне* вихід_розміру,
@@ -15,11 +28,12 @@
 
 логічне пристрій_мавки_отримати_версію(п8** вихід_даних,
                                        природне* вихід_розміру) {
-  п8* дані_версії_ю8 = (п8*)MAVKA_VERSION;
-  природне довжина_версії_ю8 = 0;
+  п8* дані_версії_ю8;
+  природне довжина_версії_ю8;
 
-  while (дані_версії_ю8[довжина_версії_ю8] != '\0') {
-    довжина_версії_ю8++;
+  if (!pristriy_mavky_get_version((char**)&дані_версії_ю8,
+                                  (size_t*)&довжина_версії_ю8)) {
+    return ні;
   }
 
   if (!пристрій_мавки_перекодувати_ю8_в_кд(довжина_версії_ю8, дані_версії_ю8,
@@ -117,7 +131,7 @@ void пристрій_мавки_вивести_кд(природне колір
 }
 
 р64 пристрій_мавки_мат_кор2(р64 значення) {
-  return (double)pristriy_mavky_double_sqrt2((double)значення);
+  return (double)pristriy_mavky_double_sqrt((double)значення);
 }
 
 р64 пристрій_мавки_мат_стеля(р64 значення) {
@@ -508,6 +522,10 @@ static void read_input_async_callback(char* data,
   пристрій_мавки_звільнити(дані_назви_символа_ю8);
 
   return dls;
+}
+
+ціле пристрій_мавки_закрити_динамічну_бібліотеку(адреса дб) {
+  return (ціле)pristriy_mavky_dlclose((void*)дб);
 }
 
 void пристрій_мавки_вийти(ціле код_виходу) {

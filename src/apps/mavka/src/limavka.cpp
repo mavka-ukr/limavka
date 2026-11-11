@@ -49,7 +49,7 @@ int pristriy_mavky_dlclose(void* dl) {
     static_cast<App*>(апп)->canvas->drawEllipse(г, в, рг, рв, колір);
 }
 
-ніщо лімавка_полотно_запланувати(адреса апп) {
+ніщо лімавка_полотно_відмалювати(адреса апп) {
     static_cast<App*>(апп)->queueDraw();
 }
 
