@@ -98,14 +98,6 @@ FileManagerApp::FileManagerApp(const String& path) :
         LILKA_MENU_CLBK_DATA_CAST(this)
     );
     fileOpenWithMenu.addItem(
-        K_S_FMANAGER_MJS,
-        0,
-        lilka::colors::White,
-        "",
-        LILKA_MENU_CLBK_CAST(&FileManagerApp::onFileOpenWithMJS),
-        LILKA_MENU_CLBK_DATA_CAST(this)
-    );
-    fileOpenWithMenu.addItem(
         K_S_FMANAGER_MAVKA,
         0,
         lilka::colors::White,
@@ -127,14 +119,6 @@ FileManagerApp::FileManagerApp(const String& path) :
         lilka::colors::White,
         "",
         LILKA_MENU_CLBK_CAST(&FileManagerApp::onFileOpenWithMadPlayer),
-        LILKA_MENU_CLBK_DATA_CAST(this)
-    );
-    fileOpenWithMenu.addItem(
-        K_S_FMANAGER_DYNAPP,
-        0,
-        lilka::colors::White,
-        "",
-        LILKA_MENU_CLBK_CAST(&FileManagerApp::onFileOpenWithDynApp),
         LILKA_MENU_CLBK_DATA_CAST(this)
     );
     fileOpenWithMenu.addItem(
@@ -321,10 +305,6 @@ FMEntry FileManagerApp::pathToEntry(const String& path) {
         newEntry.type = FT_LUA_SCRIPT;
         newEntry.icon = FT_LUA_SCRIPT_ICON;
         newEntry.color = FT_LUA_SCRIPT_COLOR;
-    } else if (lowerCasedPath.endsWith(".js")) {
-        newEntry.type = FT_JS_SCRIPT;
-        newEntry.icon = FT_JS_SCRIPT_ICON;
-        newEntry.color = FT_JS_SCRIPT_COLOR;
     } else if (lowerCasedPath.endsWith(".м")) {
         newEntry.type = FT_MAVKA_SCRIPT;
         newEntry.icon = FT_MAVKA_SCRIPT_ICON;
@@ -340,10 +320,6 @@ FMEntry FileManagerApp::pathToEntry(const String& path) {
         newEntry.type = FT_LT;
         newEntry.icon = FT_LT_ICON;
         newEntry.color = FT_LT_COLOR;
-    } else if (lowerCasedPath.endsWith(".so")) {
-        newEntry.type = FT_SO;
-        newEntry.icon = FT_SO_ICON;
-        newEntry.color = FT_SO_COLOR;
     } else if (
         lowerCasedPath.endsWith(".png") || lowerCasedPath.endsWith(".jpg") || lowerCasedPath.endsWith(".jpeg") ||
         lowerCasedPath.endsWith(".gif") || lowerCasedPath.endsWith(".bmp")
@@ -383,9 +359,6 @@ void FileManagerApp::openCurrentEntry() {
         case FT_LUA_SCRIPT:
             K_FT_LUA_SCRIPT_HANDLER(path);
             break;
-        case FT_JS_SCRIPT:
-            K_FT_JS_SCRIPT_HANDLER(path);
-            break;
         case FT_MAVKA_SCRIPT:
             K_FT_MAVKA_SCRIPT_HANDLER(path);
             break;
@@ -394,9 +367,6 @@ void FileManagerApp::openCurrentEntry() {
             break;
         case FT_LT:
             K_FT_LT_HANDLER(path);
-            break;
-        case FT_SO:
-            K_FT_SO_HANDLER(path);
             break;
         case FT_IMAGE:
             K_FT_IMAGE_HANDLER(path);
@@ -515,16 +485,6 @@ void FileManagerApp::onFileOpenWithLua() {
     FM_DBG LXP;
 }
 
-void FileManagerApp::onFileOpenWithMJS() {
-    FM_DBG LEP;
-
-    FM_MENU_HANDLE_EXIT(fileOpenWithMenu);
-
-    K_FT_JS_SCRIPT_HANDLER(lilka::fileutils.joinPath(currentEntry.path, currentEntry.name));
-
-    FM_DBG LXP;
-}
-
 void FileManagerApp::onFileOpenWithMavka() {
     FM_DBG LEP;
 
@@ -553,14 +513,6 @@ void FileManagerApp::onFileOpenWithMadPlayer() {
     K_FT_SOUND_HANDLER(lilka::fileutils.joinPath(currentEntry.path, currentEntry.name));
 
     FM_DBG LXP;
-}
-
-void FileManagerApp::onFileOpenWithDynApp() {
-    FM_DBG lilka::serial.log("Enter onFileOpenWithDynApp");
-    auto button = fileOpenWithMenu.getButton();
-    if (button == FM_EXIT_BUTTON) return; // Exit
-
-    K_FT_SO_HANDLER(lilka::fileutils.joinPath(currentEntry.path, currentEntry.name));
 }
 
 void FileManagerApp::onFileOpenWithImageViewer() {

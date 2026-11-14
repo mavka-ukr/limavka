@@ -30,11 +30,9 @@
 #define FT_NES_ROM_COLOR      lilka::colors::Candy_pink
 #define FT_BIN_COLOR          lilka::colors::Mint_green
 #define FT_LUA_SCRIPT_COLOR   lilka::colors::Maya_blue
-#define FT_JS_SCRIPT_COLOR    lilka::colors::Butterscotch
-#define FT_MAVKA_SCRIPT_COLOR lilka::colors::Red
+#define FT_MAVKA_SCRIPT_COLOR lilka::colors::Blue
 #define FT_SOUND_COLOR        lilka::colors::Plum_web
 #define FT_LT_COLOR           lilka::colors::Pink_lace
-#define FT_SO_COLOR           lilka::colors::Aquamarine
 #define FT_IMAGE_COLOR        lilka::colors::Jasmine
 #define FT_DIR_COLOR          lilka::colors::Arylide_yellow
 #define FT_OTHER_COLOR        lilka::colors::Light_gray
@@ -49,11 +47,9 @@
 #define FT_NES_ICON             &nes_img
 #define FT_BIN_ICON             &bin_img
 #define FT_LUA_SCRIPT_ICON      &lua_img
-#define FT_JS_SCRIPT_ICON       &js_img
 #define FT_MAVKA_SCRIPT_ICON    &mavka_img
 #define FT_SOUND_ICON           &music_img
 #define FT_LT_ICON              &music_img
-#define FT_SO_ICON              &bin_img
 #define FT_IMAGE_ICON           &imagefile_img
 #define FT_DIR_ICON             &folder_img
 #define FT_OTHER_ICON           &normalfile_img
@@ -100,7 +96,6 @@
 #include "apps/icons/nes.h"
 #include "apps/icons/bin.h"
 #include "apps/icons/lua.h"
-#include "apps/icons/js.h"
 #include "apps/icons/mavka.h"
 #include "apps/icons/music.h"
 #include "apps/icons/selectedfile.h"
@@ -126,11 +121,9 @@ typedef enum {
     FT_NES_ROM,
     FT_BIN,
     FT_LUA_SCRIPT,
-    FT_JS_SCRIPT,
     FT_MAVKA_SCRIPT,
     FT_SOUND,
     FT_LT,
-    FT_SO,
     FT_IMAGE,
     FT_DIR,
     FT_OTHER
@@ -301,11 +294,9 @@ private:
     void onFileOpenWithNESEmulator();
     void onFileOpenWithMultiBootLoader();
     void onFileOpenWithLua();
-    void onFileOpenWithMJS();
     void onFileOpenWithMavka();
     void onFileOpenWithLilTracker();
     void onFileOpenWithMadPlayer();
-    void onFileOpenWithDynApp();
     void onFileOpenWithImageViewer();
 
     // Callbacks [fileListMenu]:
