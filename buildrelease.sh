@@ -8,8 +8,9 @@ bash src/apps/mavka/translate.sh
 pio run -t clean
 pio run -e v2
 
-esptool --chip esp32s3 merge_bin \
+esptool --chip esp32s3 merge-bin \
   -o .pio/build/v2/ЛіМавка-$VERSION.bin \
+  --format hex \
   0x0 .pio/build/v2/bootloader.bin \
   0x8000 .pio/build/v2/partitions.bin \
   0x10000 .pio/build/v2/firmware.bin
