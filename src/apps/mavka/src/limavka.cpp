@@ -4,7 +4,6 @@
 #include "./limavka.h"
 
 extern "C" {
-
 void* pristriy_mavky_dlopen(char* path_data, size_t path_size, int* err_out) {
     return NULL;
 }
@@ -25,28 +24,30 @@ int pristriy_mavky_dlclose(void* dl) {
     return static_cast<App*>(апп)->canvas->height();
 }
 
-ніщо лімавка_полотно_вдуга(адреса апп, ціле г, ціле в, ціле р1, ціле р2, р32 пк, р32 кк, природне колір) {
-    static_cast<App*>(апп)->canvas->fillArc(г, в, р1, р2, пк, кк, колір);
+ніщо лімавка_полотно_вдуга(адреса апп, ціле ікс, ціле ігр, ціле р1, ціле р2, р32 пк, р32 кк, природне колір) {
+    static_cast<App*>(апп)->canvas->fillArc(ікс, ігр, р1, р2, пк, кк, колір);
 }
 
-ніщо лімавка_полотно_веліпс(адреса апп, ціле г, ціле в, ціле рг, ціле рв, природне колір) {
-    static_cast<App*>(апп)->canvas->fillEllipse(г, в, рг, рв, колір);
+ніщо лімавка_полотно_веліпс(адреса апп, ціле ікс, ціле ігр, ціле рікс, ціле рігр, природне колір) {
+    static_cast<App*>(апп)->canvas->fillEllipse(ікс, ігр, рікс, рігр, колір);
 }
 
-ніщо лімавка_полотно_впрямокут(адреса апп, ціле г, ціле в, ціле вис, ціле шир, природне колір) {
-    static_cast<App*>(апп)->canvas->fillRect(г, в, вис, шир, колір);
+ніщо лімавка_полотно_впрямокут(адреса апп, ціле ікс, ціле ігр, ціле вис, ціле шир, природне колір) {
+    static_cast<App*>(апп)->canvas->fillRect(ікс, ігр, вис, шир, колір);
 }
 
-ніщо лімавка_полотно_втрикут(адреса апп, ціле г0, ціле в0, ціле г1, ціле в1, ціле г2, ціле в2, природне колір) {
-    static_cast<App*>(апп)->canvas->fillTriangle(г0, в0, г1, в1, г2, в2, колір);
+ніщо лімавка_полотно_втрикут(
+    адреса апп, ціле ікс0, ціле ігр0, ціле ікс1, ціле ігр1, ціле ікс2, ціле ігр2, природне колір
+) {
+    static_cast<App*>(апп)->canvas->fillTriangle(ікс0, ігр0, ікс1, ігр1, ікс2, ігр2, колір);
 }
 
-ніщо лімавка_полотно_дуга(адреса апп, ціле г, ціле в, ціле р1, ціле р2, р32 пк, р32 кк, природне колір) {
-    static_cast<App*>(апп)->canvas->drawArc(г, в, р1, р2, пк, кк, колір);
+ніщо лімавка_полотно_дуга(адреса апп, ціле ікс, ціле ігр, ціле р1, ціле р2, р32 пк, р32 кк, природне колір) {
+    static_cast<App*>(апп)->canvas->drawArc(ікс, ігр, р1, р2, пк, кк, колір);
 }
 
-ніщо лімавка_полотно_еліпс(адреса апп, ціле г, ціле в, ціле рг, ціле рв, природне колір) {
-    static_cast<App*>(апп)->canvas->drawEllipse(г, в, рг, рв, колір);
+ніщо лімавка_полотно_еліпс(адреса апп, ціле ікс, ціле ігр, ціле рікс, ціле рігр, природне колір) {
+    static_cast<App*>(апп)->canvas->drawEllipse(ікс, ігр, рікс, рігр, колір);
 }
 
 ніщо лімавка_полотно_відмалювати(адреса апп) {
@@ -57,24 +58,24 @@ int pristriy_mavky_dlclose(void* dl) {
     static_cast<App*>(апп)->canvas->fillScreen(колір);
 }
 
-ніщо лімавка_полотно_прямокут(адреса апп, ціле г, ціле в, ціле вис, ціле шир, природне колір) {
-    static_cast<App*>(апп)->canvas->drawRect(г, в, вис, шир, колір);
+ніщо лімавка_полотно_прямокут(адреса апп, ціле ікс, ціле ігр, ціле вис, ціле шир, природне колір) {
+    static_cast<App*>(апп)->canvas->drawRect(ікс, ігр, вис, шир, колір);
 }
 
 ніщо лімавка_полотно_колір565(адреса апп, п8 ч, п8 з, п8 с) {
     static_cast<App*>(апп)->canvas->color565(ч, з, с);
 }
 
-ніщо лімавка_полотно_коло(адреса апп, ціле г, ціле в, ціле р, природне колір) {
-    static_cast<App*>(апп)->canvas->drawCircle(г, в, р, колір);
+ніщо лімавка_полотно_коло(адреса апп, ціле ікс, ціле ігр, ціле р, природне колір) {
+    static_cast<App*>(апп)->canvas->drawCircle(ікс, ігр, р, колір);
 }
 
-ніщо лімавка_полотно_круг(адреса апп, ціле г, ціле в, ціле р, природне колір) {
-    static_cast<App*>(апп)->canvas->fillCircle(г, в, р, колір);
+ніщо лімавка_полотно_круг(адреса апп, ціле ікс, ціле ігр, ціле р, природне колір) {
+    static_cast<App*>(апп)->canvas->fillCircle(ікс, ігр, р, колір);
 }
 
-ніщо лімавка_полотно_лінія(адреса апп, ціле г0, ціле в0, ціле г1, ціле в1, природне колір) {
-    static_cast<App*>(апп)->canvas->drawLine(г0, в0, г1, в1, колір);
+ніщо лімавка_полотно_лінія(адреса апп, ціле ікс0, ціле ігр0, ціле ікс1, ціле ігр1, природне колір) {
+    static_cast<App*>(апп)->canvas->drawLine(ікс0, ігр0, ікс1, ігр1, колір);
 }
 
 static const uint8_t* fonts[] = {
@@ -90,23 +91,25 @@ static const uint8_t* fonts[] = {
 };
 
 ніщо лімавка_полотно_текст(
-    адреса апп, ціле г, ціле в, п8* дані_значення, природне розмір_значення, природне шрифт, природне розмір,
+    адреса апп, ціле ікс, ціле ігр, п8* дані_значення, природне розмір_значення, природне шрифт, природне розмір,
     природне колір
 ) {
     const auto app = static_cast<App*>(апп);
-    app->canvas->setCursor(г, в);
+    app->canvas->setCursor(ікс, ігр);
     app->canvas->setFont(fonts[шрифт]);
     app->canvas->setTextSize(розмір);
     app->canvas->setTextColor(колір);
     app->canvas->print(String(дані_значення, розмір_значення));
 }
 
-ніщо лімавка_полотно_точка(адреса апп, ціле г0, ціле в0, природне колір) {
-    static_cast<App*>(апп)->canvas->drawPixel(г0, в0, колір);
+ніщо лімавка_полотно_точка(адреса апп, ціле ікс0, ціле ігр0, природне колір) {
+    static_cast<App*>(апп)->canvas->drawPixel(ікс0, ігр0, колір);
 }
 
-ніщо лімавка_полотно_трикут(адреса апп, ціле г0, ціле в0, ціле г1, ціле в1, ціле г2, ціле в2, природне колір) {
-    static_cast<App*>(апп)->canvas->drawTriangle(г0, в0, г1, в1, г2, в2, колір);
+ніщо лімавка_полотно_трикут(
+    адреса апп, ціле ікс0, ціле ігр0, ціле ікс1, ціле ігр1, ціле ікс2, ціле ігр2, природне колір
+) {
+    static_cast<App*>(апп)->canvas->drawTriangle(ікс0, ігр0, ікс1, ігр1, ікс2, ігр2, колір);
 }
 
 typedef struct ЛімавкаСтанКнопки {
@@ -131,36 +134,45 @@ typedef struct ЛімавкаСтанКнопок {
     lilka::State state = lilka::controller.getState();
     lilka::_StateButtons& buttons = *reinterpret_cast<lilka::_StateButtons*>(&state);
 
-    вихід_стану->вверх.нажато = buttons[0].pressed;
-    вихід_стану->вверх.щойно_нажато = buttons[0].justPressed;
-    вихід_стану->вверх.щойно_відпущено = buttons[0].justReleased;
-    вихід_стану->вниз.нажато = buttons[1].pressed;
-    вихід_стану->вниз.щойно_нажато = buttons[1].justPressed;
-    вихід_стану->вниз.щойно_відпущено = buttons[1].justReleased;
-    вихід_стану->вліво.нажато = buttons[2].pressed;
-    вихід_стану->вліво.щойно_нажато = buttons[2].justPressed;
-    вихід_стану->вліво.щойно_відпущено = buttons[2].justReleased;
-    вихід_стану->вправо.нажато = buttons[3].pressed;
-    вихід_стану->вправо.щойно_нажато = buttons[3].justPressed;
-    вихід_стану->вправо.щойно_відпущено = buttons[3].justReleased;
-    вихід_стану->а.нажато = buttons[4].pressed;
-    вихід_стану->а.щойно_нажато = buttons[4].justPressed;
-    вихід_стану->а.щойно_відпущено = buttons[4].justReleased;
-    вихід_стану->б.нажато = buttons[5].pressed;
-    вихід_стану->б.щойно_нажато = buttons[5].justPressed;
-    вихід_стану->б.щойно_відпущено = buttons[5].justReleased;
-    вихід_стану->г.нажато = buttons[6].pressed;
-    вихід_стану->г.щойно_нажато = buttons[6].justPressed;
-    вихід_стану->г.щойно_відпущено = buttons[6].justReleased;
-    вихід_стану->д.нажато = buttons[7].pressed;
-    вихід_стану->д.щойно_нажато = buttons[7].justPressed;
-    вихід_стану->д.щойно_відпущено = buttons[7].justReleased;
-    вихід_стану->вибрати.нажато = buttons[8].pressed;
-    вихід_стану->вибрати.щойно_нажато = buttons[8].justPressed;
-    вихід_стану->вибрати.щойно_відпущено = buttons[8].justReleased;
-    вихід_стану->почати.нажато = buttons[9].pressed;
-    вихід_стану->почати.щойно_нажато = buttons[9].justPressed;
-    вихід_стану->почати.щойно_відпущено = buttons[9].justReleased;
+    вихід_стану->вверх.нажато = buttons[lilka::Button::UP].pressed;
+    вихід_стану->вверх.щойно_нажато = buttons[lilka::Button::UP].justPressed;
+    вихід_стану->вверх.щойно_відпущено = buttons[lilka::Button::UP].justReleased;
+
+    вихід_стану->вниз.нажато = buttons[lilka::Button::DOWN].pressed;
+    вихід_стану->вниз.щойно_нажато = buttons[lilka::Button::DOWN].justPressed;
+    вихід_стану->вниз.щойно_відпущено = buttons[lilka::Button::DOWN].justReleased;
+
+    вихід_стану->вліво.нажато = buttons[lilka::Button::LEFT].pressed;
+    вихід_стану->вліво.щойно_нажато = buttons[lilka::Button::LEFT].justPressed;
+    вихід_стану->вліво.щойно_відпущено = buttons[lilka::Button::LEFT].justReleased;
+
+    вихід_стану->вправо.нажато = buttons[lilka::Button::RIGHT].pressed;
+    вихід_стану->вправо.щойно_нажато = buttons[lilka::Button::RIGHT].justPressed;
+    вихід_стану->вправо.щойно_відпущено = buttons[lilka::Button::RIGHT].justReleased;
+
+    вихід_стану->а.нажато = buttons[lilka::Button::A].pressed;
+    вихід_стану->а.щойно_нажато = buttons[lilka::Button::A].justPressed;
+    вихід_стану->а.щойно_відпущено = buttons[lilka::Button::A].justReleased;
+
+    вихід_стану->б.нажато = buttons[lilka::Button::B].pressed;
+    вихід_стану->б.щойно_нажато = buttons[lilka::Button::B].justPressed;
+    вихід_стану->б.щойно_відпущено = buttons[lilka::Button::B].justReleased;
+
+    вихід_стану->г.нажато = buttons[lilka::Button::C].pressed;
+    вихід_стану->г.щойно_нажато = buttons[lilka::Button::C].justPressed;
+    вихід_стану->г.щойно_відпущено = buttons[lilka::Button::C].justReleased;
+
+    вихід_стану->д.нажато = buttons[lilka::Button::D].pressed;
+    вихід_стану->д.щойно_нажато = buttons[lilka::Button::D].justPressed;
+    вихід_стану->д.щойно_відпущено = buttons[lilka::Button::D].justReleased;
+
+    вихід_стану->вибрати.нажато = buttons[lilka::Button::SELECT].pressed;
+    вихід_стану->вибрати.щойно_нажато = buttons[lilka::Button::SELECT].justPressed;
+    вихід_стану->вибрати.щойно_відпущено = buttons[lilka::Button::SELECT].justReleased;
+
+    вихід_стану->почати.нажато = buttons[lilka::Button::START].pressed;
+    вихід_стану->почати.щойно_нажато = buttons[lilka::Button::START].justPressed;
+    вихід_стану->почати.щойно_відпущено = buttons[lilka::Button::START].justReleased;
 }
 
 ціле лімавка_запустити_файл(адреса апп, п8* дані_шляху, природне розмір_шляху);
